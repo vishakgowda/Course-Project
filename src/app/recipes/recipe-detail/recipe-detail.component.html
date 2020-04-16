@@ -1,15 +1,19 @@
-<div class="row mx-3">
-  <div class="col-12">
+<div class="row mx-3 py-3">
+  <div class="col-12 px-0">
     <img [src]="recepe.imagepath" alt="">
   </div>
   <h3>{{recepe.name}}</h3>
   <div class="col-12 px-0">
-  <button class="btn btn-primary  dropdown-toggle">Manage Recipe</button>
-  <ul class="dropdown-menu">
-    <li><a href="#">To Shopping List</a></li>
-    <li><a href="#">Edit Recipe</a></li>
-    <li><a href="#">Delete Rrecipe</a></li>
-  </ul>
+
+    <div class="dropdown show">
+      <button class="btn btn-primary dropdown-toggle" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButton" data-toggle="dropdown">Manage Recipe</button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a href="#" class="dropdown-item">To Shopping List</a></li>
+        <li><a href="#" class="dropdown-item">Edit Recipe</a></li>
+        <li><a href="#" class="dropdown-item">Delete Rrecipe</a></li>
+      </ul>
+    </div>
+
   </div>
   <div class="col-12 px-0">
     {{recepe.description}}
