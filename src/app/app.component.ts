@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-app';
+  loadeFeature = 'recepie'
 
-  public choose = "";
+  onNavigate(featureData){
+    this.loadeFeature = featureData
+    console.log(featureData);
 
-  selectvalue(drp){
-   this.choose = drp.target.value
   }
 }

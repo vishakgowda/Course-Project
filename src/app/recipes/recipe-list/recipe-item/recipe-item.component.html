@@ -1,1 +1,10 @@
-<h1>recipe-item works!</h1>
+<a href="#" class="list-group-item bg-light"
+(click)="onselected()">
+  <div class="media">
+    <div class="media-body">
+      <h5 class="mt-0">{{recipe.name}}</h5>
+      <p>{{recipe.description}}</p>
+    </div>
+    <img class="ml-2" [src]="recipe.imagepath" alt="Generic placeholder image" class="w-25">
+  </div>
+</a>
