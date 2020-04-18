@@ -11,6 +11,7 @@ export class ShoppingListComponent implements OnInit {
    new Ingredient('Apples',5),
    new Ingredient('tommatos',4)
   ];
+  showEdit =false;
   constructor() { }
 
   ngOnInit() {
@@ -26,8 +27,30 @@ export class ShoppingListComponent implements OnInit {
     }
   }
 
-  onEdit(){
+  onDelete(i){
+    this.ingredients.splice(i,1)
+  }
 
+  ingInfo: any = {};
+
+
+   myValue;
+
+  editIng(editIng) {
+    this.ingInfo.name = this.ingredients[editIng].name;
+    this.ingInfo.amount = this.ingredients[editIng].amount;
+    this.myValue = editIng;
+    this.showEdit = true;
+  }
+
+  updateIng() {
+    let editIng = this.myValue;
+    for (let i = 0; i < this.ingredients.length; i++) {
+      if (i == editIng) {
+        this.ingredients[i] = this.ingInfo;
+        this.ingInfo = {};
+      }
+    }
   }
 
 }
