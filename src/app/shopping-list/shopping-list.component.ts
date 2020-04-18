@@ -16,8 +16,18 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
   }
 
-  oningredientAdded(ingredient:Ingredient){
-    this.ingredients.push(ingredient)
+  oningredientAdded(ingredient){
+    let indexx = this.ingredients.findIndex(x => x.name == ingredient.name)
+    if(indexx=== -1){
+      this.ingredients.push(ingredient)
+    }
+    else{
+        alert('Duplicate Entry');
+    }
+  }
+
+  onEdit(){
+
   }
 
 }

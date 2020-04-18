@@ -11,6 +11,5 @@ export class AppComponent {
   onNavigate(featureData){
     this.loadeFeature = featureData
     console.log(featureData);
-
   }
 }
