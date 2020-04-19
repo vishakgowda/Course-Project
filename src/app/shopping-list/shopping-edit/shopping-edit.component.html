@@ -9,7 +9,7 @@
         </div>
         <div class="col-2">
           <label for="amount">Amount</label>
-          <input type="number" name="input" class="form-control" required [(ngModel)]="ingInfo.amount">
+          <input type="number" name="input" min="1" onkeypress="return event.charCode != 45" class="form-control" required [(ngModel)]="ingInfo.amount">
         </div>
       </div>
       <div class="col-12 py-3 pl-0">
@@ -34,5 +34,6 @@
         </div>
       </li>
     </ul>
+    <h4 class="p-4 bg-light">Ingredient Sum : {{amountTotal}}</h4>
   </div>
 </div>

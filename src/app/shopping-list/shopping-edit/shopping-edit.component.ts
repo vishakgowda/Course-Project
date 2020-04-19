@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient-model';
 
 
@@ -7,23 +7,28 @@ import { Ingredient } from 'src/app/shared/ingredient-model';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.scss']
 })
-export class ShoppingEditComponent  {
+export class ShoppingEditComponent implements OnInit {
   onAdd = true;
   onUpdate = false;
   ingIndex;
   ingInfo: any = {};
+  amountTotal
 
   ingredients: Ingredient[] = [
     new Ingredient('Apple', 3),
-    new Ingredient('Orange', 4)
+    new Ingredient('Orange', 4),
   ]
+
+  ngOnInit() {
+    this.amountTotal = this.ingredients.reduce(function (prev, cur) {
+      return prev + cur.amount;
+    }, 0);
+  }
 
   oningredientAdded() {
 
     const newIngredient = new Ingredient(this.ingInfo.name, this.ingInfo.amount)
-
     let indexx = this.ingredients.findIndex(x => x.name == newIngredient.name)
-
 
     if (indexx === -1) {
       this.ingredients.push(newIngredient)
@@ -31,6 +36,10 @@ export class ShoppingEditComponent  {
     else {
       alert('Duplicate Entry');
     }
+
+     this.amountTotal = this.ingredients.reduce(function (prev, cur) {
+      return prev + cur.amount;
+    }, 0);
   }
 
   onEdit(i) {
@@ -51,11 +60,14 @@ export class ShoppingEditComponent  {
     }
     this.onAdd = true;
     this.onUpdate = false
+
+    this.amountTotal = this.ingredients.reduce(function (prev, cur) {
+      return prev + cur.amount;
+    }, 0);
   }
 
   onDelete(i) {
     this.ingredients.splice(i, 1)
-
   }
 
 }
